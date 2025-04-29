@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Rheka Narwastu</strong> — <em>rnarwastu@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Clinic Changes Influences the Rate of Out-of-State Abortion Care </h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+    
+        <figure>
+          <iframe src="supporting_plot.html" width="100%" height="500px" style="border:none;"></iframe>
+          <figcaption>Supporting Proposition Plot</figcaption>
+        </figure>
+    
+        <p>Design Decisions and Rationale:</p>
+    
+        <ul>
+          <li>Use of a sequential color scale (<i>RdPu</i>)</li>
+          <p><b>Score:</b> +2 (Fully Earnest)</p>
+          <p><b>Rationale:</b> A sequential color scale (from light pink to dark purple) was chosen to clearly represent the severity of out-of-state travel burdens. Darker colors intuitively signal areas of greatest access loss. This color choice worked well by creating immediate visual contrast without distorting the underlying data. An alternative considered was using a blue gradient, but pink/purple shades evoke stronger emotional urgency around health and rights issues, which better suited the persuasive goal.</p>
+    
+          <li>Emotive secondary title and description</li>
+          <p><b>Score:</b> +2 (Fully Earnest)</p>
+          <p><b>Rationale:</b> The subtitle "Higher Travel Rates Reflect Significant Barriers to Local Abortion Access" frames the viewer’s interpretation toward understanding higher travel rates as negative. This framing immediately set the tone without altering data. It worked well by anchoring the reader emotionally early. I considered using a more neutral subtitle but chose a more assertive one to increase persuasion while staying truthful.</p>
+    
+          <li>Adjusting color range maximum to 80%</li>
+          <p><b>Score:</b> -0.5 (Mildly Deceptive)</p>
+          <p><b>Rationale:</b> By capping the maximum color range at 80% instead of 100%, the differences between high- and mid-burden states appeared more pronounced. This made the disparities seem sharper and more concerning, supporting the proposition more strongly. While it visually exaggerated differences, it remained within ethical persuasive boundaries. I considered keeping the raw scale but found it made the map less visually expressive and urgent.</p>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>AGAINST the Proposition</h3>
+    
+        <figure>
+          <iframe src="opposing_plot.html" width="100%" height="500px" style="border:none;"></iframe>
+          <figcaption>Opposing Proposition Plot</figcaption>
+        </figure>
+    
+        <p>Design Decisions and Rationale:</p>
+    
+        <ul>
+          <li>Create a composite "Travel Burden Score" (Out-of-State Travel × Clinic Loss %) then Normalizing</li>
+          <p><b>Score:</b> -1 (Deceptive)</p>
+          <p><b>Rationale:</b> Combining two measures into a new "Travel Burden Score" diluted the appearance of extreme cases, softening the perception of widespread burden. This decision worked by flattening differences between states, helping make local access appear more stable. One alternative was showing raw out-of-state travel percentages, but that would have made the map look much more alarming. Creating a composite score subtly shifted focus without hiding factual information.</p>
+    
+          <li>Use a muted purple continuous color scale</li>
+          <p><b>Score:</b> -1 (Deceptive)</p>
+          <p><b>Rationale:</b> Using a lighter purple palette visually calmed the map, reducing immediate perception of crisis even when high-burden states existed. This worked very effectively in making the overall situation appear moderate. An alternative considered was using stronger red tones, but that would have visually amplified the issue, undermining the opposing proposition.</p>
+    
+          <li>Selective Annotations for only the two highest burdened states</li>
+          <p><b>Score:</b> -0.5 (Mildly Deceptive)</p>
+          <p><b>Rationale:</b> Annotating only Missouri and Kentucky, and labeling Missouri as "rare" while describing Kentucky as "moderate," guided readers to believe that extreme cases were isolated exceptions. This decision made it easier to suggest that most states experienced only minor impacts. I considered annotating more states, but highlighting only the outliers was more effective for supporting the opposing argument without lying.</p>
+        </ul>
+    </section>
+    
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Designing the opposing visualization was more challenging than the supporting one. It required strategic softening: carefully choosing transformations and framing that would shift perception without misleading. It was surprising how much impact color choice and framing text had on how serious (or not) the situation appeared, even though the underlying numbers were similar.
+          From this, I realize that ethical visualization isn't just about being factually accurate but it's also about being conscious of how visual elements, emphasis, and transformations can nudge interpretations. 
+        </p>
+        <p>
+          Good persuasive visualizations respect the truth but guide the reader toward particular narratives through framing, styling, and selective focus.
+          Misleading visualizations fabricate the truth, while ethical persuasion involves spotlighting different but truthful aspects of the data.
+          Overall, I feel this project helped me practice how to stay persuasive without crossing ethical lines, by using framing techniques responsibly.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
